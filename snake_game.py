@@ -59,3 +59,60 @@ def draw_food(food_pos):
 # Function to randomly place the food on the screen
 def place_food():
     return [random.randrange(1, (screen_width//10)) * 10, random.randrange(1, (screen_height//10)) * 10]
+
+# Main game loop
+def game_loop():
+    snake_body = [[100, 50], [90, 50], [80, 50]]
+    food_pos = place_food()
+    direction = 'RIGHT'
+    change_to = direction
+    score = 0
+
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_UP:
+                    change_to = 'UP'
+                elif event.key == pygame.K_DOWN:
+                    change_to = 'DOWN'
+                elif event.key == pygame.K_LEFT:
+                    change_to = 'LEFT'
+                elif event.key == pygame.K_RIGHT:
+                    change_to = 'RIGHT'
+
+        if change_to == 'UP' and direction != 'DOWN':
+            direction = 'UP'
+        if change_to == 'DOWN' and direction != 'UP':
+            direction = 'DOWN'
+        if change_to == 'LEFT' and direction != 'RIGHT':
+            direction = 'LEFT'
+        if change_to == 'RIGHT' and direction != 'LEFT':
+            direction = 'RIGHT'
+
+        if direction == 'UP':
+            snake_body[0][1] -= 10
+        if direction == 'DOWN':
+            snake_body[0][1] += 10
+        if direction == 'LEFT':
+            snake_body[0][0] -= 10
+        if direction == 'RIGHT':
+            snake_body[0][0] += 10
+
+        snake_body.insert(0, list(snake_body[0]))
+        if snake_body[0] == food_pos:
+            score += 10
+            food_pos = place_food()
+        else:
+            snake_body.pop()
+
+        screen.fill(black)
+        draw_snake(snake_body)
+        draw_food(food_pos)
+        pygame.display.update()
+        clock.tick(snake_speed)
+
+if __name__ == '__main__':
+    game_loop()
