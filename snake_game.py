@@ -131,3 +131,18 @@ while running:
                         # Restart the game logic here
                         running = True
                         break
+
+# Scoring
+score = 0
+
+# Update score when food is eaten
+if x1 == foodx and y1 == foody:
+    foodx = round(random.randrange(0, width - snake_block) / 10.0) * 10.0
+    foody = round(random.randrange(0, height - snake_block) / 10.0) * 10.0
+    snake_length += 1
+    score += 1
+
+# Display score
+font_style = pygame.font.SysFont(None, 35)
+score_display = font_style.render(f'Score: {score}', True, white)
+screen.blit(score_display, [0, 0])
