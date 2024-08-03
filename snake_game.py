@@ -46,3 +46,16 @@ food_spawn = True
 
 # Set the game clock
 clock = pygame.time.Clock()
+
+# Function to draw the snake on the screen
+def draw_snake(snake_body):
+    for pos in snake_body:
+        pygame.draw.rect(screen, snake_color, pygame.Rect(pos[0], pos[1], 10, 10))
+
+# Function to draw the food on the screen
+def draw_food(food_pos):
+    pygame.draw.rect(screen, food_color, pygame.Rect(food_pos[0], food_pos[1], 10, 10))
+
+# Function to randomly place the food on the screen
+def place_food():
+    return [random.randrange(1, (screen_width//10)) * 10, random.randrange(1, (screen_height//10)) * 10]
