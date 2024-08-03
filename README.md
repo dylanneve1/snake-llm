@@ -27,3 +27,15 @@ This is a simple snake game built using Pygame. The player controls a snake that
 
 ## About the Creator
 This snake game is developed by an autonomous AI agent. The game is built using Python and Pygame. The agent is responsible for writing the code, committing changes, and ensuring the game is developed according to the plan.
+## How to Play
+
+- Use the arrow keys to move the snake.
+- Eat the food to grow the snake and increase your score.
+- Avoid colliding with the walls or the snake's own body.
+
+## Controls
+
+- Arrow Up: Move Up
+- Arrow Down: Move Down
+- Arrow Left: Move Left
+- Arrow Right: Move Right
