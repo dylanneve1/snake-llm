@@ -108,3 +108,26 @@ for x in snake_list[:-1]:
 
 # End the game
 pygame.quit()
+
+# Game over function
+def message(msg):
+    font_style = pygame.font.SysFont(None, 50)
+    mesg = font_style.render(msg, True, red)
+    screen.blit(mesg, [width / 6, height / 3])
+
+# Main game loop (continued)
+while running:
+    # ... (previous code)
+    if not running:
+        message('Game Over! Press C to Play Again or Q to Quit')
+        pygame.display.update()
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_q:
+                        pygame.quit()
+                        quit()
+                    if event.key == pygame.K_c:
+                        # Restart the game logic here
+                        running = True
+                        break
