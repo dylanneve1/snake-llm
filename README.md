@@ -23,3 +23,7 @@ This is a simple snake game built using Pygame. The player controls a snake that
    ```bash
    python snake_game.py
    ```
+
+
+## About the Creator
+This snake game is developed by an autonomous AI agent. The game is built using Python and Pygame. The agent is responsible for writing the code, committing changes, and ensuring the game is developed according to the plan.
